@@ -1,58 +1,59 @@
 package com.techelevator;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+
 public class Products {
 
     private String name;
-    private int slotNumber;
-    private String productType;
-    private int price;
-    private int availableStock;
+    private double price;
 
-    public Products (String name, int slotNumber, String productType, int price, int availableStock) {
+    public Products (String slotNumber, List<String> products ) {
         this.name = name;
-        this.slotNumber = slotNumber;
-        this.productType = productType;
         this.price = price;
-        this.availableStock = availableStock;
+
+    }
+
+    public Products () {
+
+    }
+
+    public Map<String, Double> getProductInfo() {
+
+        Map<String, Double> productInfoMap = new HashMap<>();
+
+        File inventoryFile = new File("vendingmachine.csv");
+        if (!inventoryFile.exists()) {
+            System.out.println("Inventory file not found!");
+        }
+
+        try (Scanner fileScanner = new Scanner(inventoryFile)) {
+
+            String[] productInfo = new String[4];
+            while (fileScanner.hasNextLine()) {
+
+                String line = fileScanner.nextLine();
+                productInfo = line.split("\\|");
+                name = productInfo[1];
+                price = Double.parseDouble(productInfo[2]);
+                productInfoMap.put(name, price);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!!");
+            System.exit(1);
+        }
+
+        return productInfoMap;
+
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getSlotNumber() {
-        return slotNumber;
-    }
-
-    public void setSlotNumber(int slotNumber) {
-        this.slotNumber = slotNumber;
-    }
-
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
-    }
-
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getAvailableStock() {
-        return availableStock;
-    }
-
-    public void setAvailableStock(int availableStock) {
-        this.availableStock = availableStock;
-    }
 }

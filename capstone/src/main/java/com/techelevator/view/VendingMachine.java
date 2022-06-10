@@ -1,55 +1,53 @@
 package com.techelevator.view;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+
 public class VendingMachine {
 
-    private int overallStock;
-    public int coin;
-    public int cash;
+    private String slotNumber;
+    private int stock;
 
-    public VendingMachine() {
-
-    }
-
-    public void getBalance() {
+    public VendingMachine(String slotNumber) {
+        this.slotNumber = slotNumber;
 
     }
 
-    public void getMenu () {
+    public Map<String, Integer> vendingMachine () {
 
-    }
+        Map<String, Integer> vendingMachineInfoMap = new HashMap<>();
 
-    //    public boolean isInStock(int stock) {
-//        if(stock < 0) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
+        File inventoryFile = new File("vendingmachine.csv");
+        if (!inventoryFile.exists()) {
+            System.out.println("Inventory file not found!");
+        }
 
-//    public int getStock(String slotNumber) {
-//    if(isInStock) {
-//        return slotNumber.whateverthestockmethodis;
-//    } else {
-//        return 0;
-//    }
+        try (Scanner fileScanner = new Scanner(inventoryFile)) {
+            stock = 5;
+            String[] productInfo = new String[4];
+            while (fileScanner.hasNextLine()) {
 
-//    public int getChange(int price, int cash, int coins) {
-//        int change = 0;
-//        change = (cash + coins) - price;
-//        return change;
-//    }
+                String line = fileScanner.nextLine();
+                productInfo = line.split("\\|");
+                slotNumber = productInfo[0];
+                vendingMachineInfoMap.put(slotNumber, stock);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!!");
+            System.exit(1);
+        }
 
-    public void returnMainMenu(){
-
-    }
-
-    public void closeTransaction() {
+        return vendingMachineInfoMap;
 
     }
 
 
-    public int getOverallStock() {
-        return overallStock;
+    public String getSlotNumber() {
+        return slotNumber;
     }
 
+    public int getStock() {
+        return stock;
+    }
 }
