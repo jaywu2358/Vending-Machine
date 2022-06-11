@@ -47,22 +47,18 @@ public class VendingMachineCLI {
 			if (userSelection.equals("1234")) {
 				//Generate sales report
 			} else if (userSelection.equals("1")) {
-				//Set<String> setOfNames = productInfoMap.keySet();
-				System.out.println("Here are the options: ");
+				System.out.println("\n");
+				System.out.println("*********** Vending Machine Items ***********");
 				System.out.println("\n");
 				vendingMachine.printInventory();
 				//will use VendingMachine display method
 			} else if (userSelection.equals("2")) {
 				System.out.println("Here are our options: ");
-				//will use VendingMachine display method
-				//System.out.println("Current money provided: " + money provided method);
-				//double placeholderName
+				vendingMachine.printInventory();
+				System.out.println("\n");
 				System.out.println("Current Money Provided: ");
 				System.out.println("\n");
 				System.out.println("(1) Feed Money");
-				System.out.println("take whole dollar 1, 5, 10, 20");
-
-
 				System.out.println("(2) Select Product");
 				System.out.println("(3) Finish Transaction");
 				System.out.println("\n");
@@ -97,8 +93,6 @@ public class VendingMachineCLI {
 			System.out.println("\n");
 
 		} while (!userInput.equals("1") || !userInput.equals("2") || !userInput.equals("3") || !userInput.equals("1234"));
-
-
 
 	}
 }

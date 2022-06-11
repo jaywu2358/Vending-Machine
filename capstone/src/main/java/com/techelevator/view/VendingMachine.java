@@ -8,7 +8,7 @@ import java.util.*;
 
 public class VendingMachine {
 
-    private Map<String, Products> productInfo = new HashMap<>();
+    private TreeMap<String, Products> productInfo = new TreeMap<>();
     private String slotNumber;
 
     public Map<String, Products> getProductInfo() {
@@ -16,23 +16,20 @@ public class VendingMachine {
         File inventoryFile = new File("vendingmachine.csv");
         if(!inventoryFile.exists()) {
             System.out.println("File not found");
+        } else if (!inventoryFile.isFile()) {
+            System.out.println("Invalid file type!!");
+            System.exit(1);
         }
 
         try (Scanner fileScanner = new Scanner(inventoryFile)) {
-
-            String[] arrayOfSlotNumber = new String[4];
-            //List<Products> listOfProduct = new ArrayList<>();
             while(fileScanner.hasNextLine()) {
 
+                String[] arrayOfSlotInfo;
                 String line = fileScanner.nextLine();
-                arrayOfSlotNumber = line.split("\\|");
-                slotNumber = arrayOfSlotNumber[0];
-                Double price = Double.parseDouble(arrayOfSlotNumber[2]);
-                Products product = new Products(arrayOfSlotNumber[1], price, arrayOfSlotNumber[3]);
-
-//                for ( int i=0; i < maxStock; i ++) {
-//                    listOfProduct.add(product);
-//                }
+                arrayOfSlotInfo = line.split("\\|");
+                slotNumber = arrayOfSlotInfo[0];
+                Double price = Double.parseDouble(arrayOfSlotInfo[2]);
+                Products product = new Products(arrayOfSlotInfo[1], price, arrayOfSlotInfo[3]);
                 productInfo.put(slotNumber, product);
             }
         } catch (FileNotFoundException e) {
@@ -58,8 +55,6 @@ public class VendingMachine {
 
         }
     }
-
-
 
     public String getSlotNumber() {
         return slotNumber;
