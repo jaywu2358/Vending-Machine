@@ -85,6 +85,8 @@ public class VendingMachineCLI {
 
 				}
 				if (userSelection.equals("3")) {
+					System.out.println(vendingMachine.getChange());
+					System.out.println();
 					//	System.out.println("Thank you for your purchase. Here is your change: " + method change);
 					//return change - using nickels, dimes, and quarters
 					//return to main menu, instead of System.exit

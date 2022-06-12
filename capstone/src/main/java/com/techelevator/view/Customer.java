@@ -4,7 +4,7 @@ import com.techelevator.Inventory.Products;
 
 public class Customer {
 
-
+    private double change;
     private double currentMoney;
 
     public String feedMoney(double amountToFeed) {
@@ -20,22 +20,6 @@ public class Customer {
         }
     }
 
-    public double getChange(double currentMoney) {
-
-        double change;
-        Products productPrice = new Products();
-        change = currentMoney - productPrice.getPrice();
-        return change;
-    }
-
-    public String dispenseChange(double change) {
-
-        double cash;
-        double nickel = 0.05;
-        double dime = 0.10;
-        double quarter = 0.25;
-
-    }
 
     public double getCurrentMoney() {
         return currentMoney;
