@@ -3,9 +3,11 @@ package com.techelevator.view;
 public class Customer {
 
 
-    private int currentMoney = 0;
+    private double currentMoney;
 
-    public String feedMoney(int amountToFeed) {
+    public String feedMoney(double amountToFeed) {
+
+        currentMoney = 0.0;
 
         if (amountToFeed == 0 ||amountToFeed == 1 || amountToFeed == 5 || amountToFeed == 10 || amountToFeed == 20) {
 
@@ -27,7 +29,8 @@ public class Customer {
         return "";
     }
 
-    public int getCurrentMoney() {
+    public double getCurrentMoney() {
         return currentMoney;
     }
+
 }

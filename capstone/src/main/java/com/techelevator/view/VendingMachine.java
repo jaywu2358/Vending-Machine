@@ -59,8 +59,9 @@ public class VendingMachine {
     public String purchase(String userSelection) {
 
         Customer customer = new Customer();
-        int currentMoney = customer.getCurrentMoney();
+        double currentMoney = customer.getCurrentMoney();
         Products currentProduct = productInfo.get(userSelection);
+
 
             if (currentMoney >= currentProduct.getPrice()) {
                 currentMoney -= currentProduct.getPrice();

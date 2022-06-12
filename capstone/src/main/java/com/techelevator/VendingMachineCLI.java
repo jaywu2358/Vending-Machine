@@ -70,7 +70,7 @@ public class VendingMachineCLI {
 				if (userSelection.equals("1")) {
 					System.out.println("Please only insert $1, $5, $10, or $20 bills");
 					userSelection = userInput.nextLine();
-					int money = Integer.parseInt(userSelection);
+					double money = Double.parseDouble(userSelection);
 					System.out.println(customer.feedMoney(money));
 
 				}
