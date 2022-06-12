@@ -6,18 +6,22 @@ import java.util.*;
 
 public class Products {
 
-
     private String name;
     private Double price;
     private String type;
     private int stock = 5;
     private int sales;
+
     public Products (String name, Double price, String type){
         this.name = name;
         this.price = price;
         this.type = type;
         stock = 5;
         sales = 0;
+    }
+
+    public Products() {
+
     }
 
     public String getDispensingMsg() {

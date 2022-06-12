@@ -2,6 +2,7 @@ package com.techelevator;
 
 import com.techelevator.Inventory.Products;
 
+import com.techelevator.view.Customer;
 import com.techelevator.view.VendingMachine;
 
 
@@ -23,9 +24,11 @@ public class VendingMachineCLI {
 		//UserBalance newUserBalance = new UserBalance(0);
 		VendingMachine vendingMachine = new VendingMachine();
 		vendingMachine.getProductInfo();
+		Customer customer = new Customer();
 
 		Scanner userInput = new Scanner(System.in);
 		String userSelection;
+
 
 		System.out.println("Welcome to the Vendo-Matic 800!");
 		System.out.println("\n");
@@ -53,10 +56,9 @@ public class VendingMachineCLI {
 				vendingMachine.printInventory();
 				//will use VendingMachine display method
 			} else if (userSelection.equals("2")) {
-				System.out.println("Here are our options: ");
-				vendingMachine.printInventory();
+
 				System.out.println("\n");
-				System.out.println("Current Money Provided: ");
+				System.out.println(customer.feedMoney(0));
 				System.out.println("\n");
 				System.out.println("(1) Feed Money");
 				System.out.println("(2) Select Product");
@@ -66,10 +68,19 @@ public class VendingMachineCLI {
 				userSelection = userInput.nextLine();
 
 				if (userSelection.equals("1")) {
-					System.out.println("Please only input $1, $5, $10 bills");
+					System.out.println("Please only insert $1, $5, $10, or $20 bills");
+					userSelection = userInput.nextLine();
+					int money = Integer.parseInt(userSelection);
+					System.out.println(customer.feedMoney(money));
 
 				}
 				if (userSelection.equals("2")) {
+					System.out.println("\n");
+					System.out.println("*********** Vending Machine Items ***********");
+					System.out.println("\n");
+					vendingMachine.printInventory();
+					userSelection = userInput.nextLine().toUpperCase();
+					System.out.println(vendingMachine.purchase(userSelection));
 
 				}
 				if (userSelection.equals("3")) {

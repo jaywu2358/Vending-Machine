@@ -42,7 +42,7 @@ public class VendingMachine {
 
     public void printInventory() {
 
-        Products defaultStock = productInfo.get(slotNumber);
+        Products defaultStock = new Products();
         for (Map.Entry<String, Products> entireSlot: productInfo.entrySet()) {
 
             slotNumber = entireSlot.getKey();
@@ -56,34 +56,18 @@ public class VendingMachine {
         }
     }
 
-    public String getSlotNumber() {
-        return slotNumber;
-    }
+    public String purchase(String userSelection) {
 
+        Customer customer = new Customer();
+        int currentMoney = customer.getCurrentMoney();
+        Products currentProduct = productInfo.get(userSelection);
+
+            if (currentMoney >= currentProduct.getPrice()) {
+                currentMoney -= currentProduct.getPrice();
+                return "You have purchased (1) " + currentProduct.getName() + " Remaining amount: $" + currentMoney;
+            }
+            return "Insufficient amount of money. Purchase failed!";
+        }
 
 }
 
-
-//    Map<String, Double> productInfoMap = new HashMap<>();
-//
-//    File inventoryFile = new File("vendingmachine.csv");
-//        if (!inventoryFile.exists()) {
-//                System.out.println("Inventory file not found!");
-//                }
-//
-//                try (Scanner fileScanner = new Scanner(inventoryFile)) {
-//
-//                String[] productInfo = new String[1];
-//                while (fileScanner.hasNextLine()) {
-//
-//                String line = fileScanner.nextLine();
-//                productInfo = line.split("\\|");
-//                name = productInfo[0];
-//                productInfoMap.put(name, Inventory);
-//                }
-//                } catch (FileNotFoundException e) {
-//                System.out.println("File not found!!");
-//                System.exit(1);
-//                }
-//
-//                return productInfoMap;
