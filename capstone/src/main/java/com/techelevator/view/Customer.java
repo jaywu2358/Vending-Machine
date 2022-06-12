@@ -1,5 +1,7 @@
 package com.techelevator.view;
 
+import com.techelevator.Inventory.Products;
+
 public class Customer {
 
 
@@ -18,13 +20,21 @@ public class Customer {
         }
     }
 
-    public String getChange() {
+    public double getChange(double currentMoney) {
 
-        int nickel;
-        int dime;
-        int quarter;
+        double change;
+        Products productPrice = new Products();
+        change = currentMoney - productPrice.getPrice();
+        return change;
+    }
 
-        return "";
+    public String dispenseChange(double change) {
+
+        double cash;
+        double nickel = 0.05;
+        double dime = 0.10;
+        double quarter = 0.25;
+
     }
 
     public double getCurrentMoney() {
