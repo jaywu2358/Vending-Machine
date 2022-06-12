@@ -24,6 +24,10 @@ public class Products {
 
     }
 
+    public int sold() {
+        return stock--;
+    }
+
     public String getDispensingMsg() {
         return "";
     }

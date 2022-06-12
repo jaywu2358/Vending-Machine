@@ -7,8 +7,6 @@ public class Customer {
 
     public String feedMoney(double amountToFeed) {
 
-        currentMoney = 0.0;
-
         if (amountToFeed == 0 ||amountToFeed == 1 || amountToFeed == 5 || amountToFeed == 10 || amountToFeed == 20) {
 
             currentMoney = currentMoney + amountToFeed;

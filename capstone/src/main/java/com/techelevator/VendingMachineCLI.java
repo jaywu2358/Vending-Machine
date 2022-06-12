@@ -24,6 +24,7 @@ public class VendingMachineCLI {
 		//UserBalance newUserBalance = new UserBalance(0);
 		VendingMachine vendingMachine = new VendingMachine();
 		vendingMachine.getProductInfo();
+		Products product = new Products();
 		Customer customer = new Customer();
 
 		Scanner userInput = new Scanner(System.in);
@@ -53,8 +54,8 @@ public class VendingMachineCLI {
 				System.out.println("\n");
 				System.out.println("*********** Vending Machine Items ***********");
 				System.out.println("\n");
-				vendingMachine.printInventory();
-				//will use VendingMachine display method
+				vendingMachine.printInventory(product);
+
 			} else if (userSelection.equals("2")) {
 
 				System.out.println("\n");
@@ -78,9 +79,9 @@ public class VendingMachineCLI {
 					System.out.println("\n");
 					System.out.println("*********** Vending Machine Items ***********");
 					System.out.println("\n");
-					vendingMachine.printInventory();
+					vendingMachine.printInventory(product);
 					userSelection = userInput.nextLine().toUpperCase();
-					System.out.println(vendingMachine.purchase(userSelection));
+					System.out.println(vendingMachine.purchase(customer, userSelection));
 
 				}
 				if (userSelection.equals("3")) {

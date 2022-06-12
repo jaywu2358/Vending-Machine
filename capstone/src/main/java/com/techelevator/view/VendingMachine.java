@@ -40,9 +40,9 @@ public class VendingMachine {
 
     }
 
-    public void printInventory() {
+    public void printInventory(Products product) {
 
-        Products defaultStock = new Products();
+
         for (Map.Entry<String, Products> entireSlot: productInfo.entrySet()) {
 
             slotNumber = entireSlot.getKey();
@@ -51,21 +51,24 @@ public class VendingMachine {
             String productType = entireSlot.getValue().getType();
             //int currentStock = entireSlot.getValue();
 
-            System.out.println(slotNumber + ": " + productName + " |Price $" + productPrice + " |Type: " + productType + " |CurrentStock: " + defaultStock.getStock());
+            System.out.println(slotNumber + ": " + productName + " |Price $" + productPrice + " |Type: " + productType + " |CurrentStock: " + product.getStock());
 
         }
     }
 
-    public String purchase(String userSelection) {
+    public String purchase(Customer customer, String userSelection) {
 
-        Customer customer = new Customer();
         double currentMoney = customer.getCurrentMoney();
         Products currentProduct = productInfo.get(userSelection);
 
-
+        if(currentProduct.getStock() == 0) {
+            return "Sold out. Please select another item.";
+        }
             if (currentMoney >= currentProduct.getPrice()) {
                 currentMoney -= currentProduct.getPrice();
-                return "You have purchased (1) " + currentProduct.getName() + " Remaining amount: $" + currentMoney;
+                currentProduct.sold();
+
+                return "You have purchased (1) " + currentProduct.getName() + ", Remaining amount: $" + currentMoney;
             }
             return "Insufficient amount of money. Purchase failed!";
         }
