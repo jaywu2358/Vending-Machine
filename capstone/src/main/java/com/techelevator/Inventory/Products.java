@@ -29,6 +29,7 @@ public abstract class Products {
     }
 
     public int getStock() {
+
         return stock;
     }
 

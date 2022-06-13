@@ -46,6 +46,7 @@ public class VendingMachineCLI {
 			System.out.println("\n");
 			System.out.println("Please make a selection: ");
 			userSelection = userInput.nextLine();
+			BigDecimal currentMoneyProvided = customer.getRemainingBalance();
 
 			if (userSelection.equals("1234")) {
 				//Generate sales report
@@ -58,7 +59,7 @@ public class VendingMachineCLI {
 			} else if (userSelection.equals("2")) {
 
 				System.out.println("\n");
-				System.out.println("Current money provided: $" + customer.getRemainingBalance());
+				System.out.println("Current money provided: $" + currentMoneyProvided);
 
 				System.out.println("\n");
 				System.out.println("(1) Feed Money");
@@ -74,24 +75,29 @@ public class VendingMachineCLI {
 					customer.feedMoney(new BigDecimal(userSelection));
 
 				}
-				if (userSelection.equals("2")) {
+				else if (userSelection.equals("2")) {
 					System.out.println("\n");
 					System.out.println("*********** Vending Machine Items ***********");
 					System.out.println("\n");
 					vendingMachine.printInventory();
+					System.out.println("\n");
+					System.out.println("Please make a selection: ");
 					userSelection = userInput.nextLine().toUpperCase();
 					vendingMachine.dispenseItem(customer, userSelection);
 
+
 				}
-				if (userSelection.equals("3")) {
+				else if (userSelection.equals("3")) {
 					customer.returnChange(vendingMachine.getRemainingBalance());
+					customer.finishTransaction(true);
+
 				}
 
 			} else if (userSelection.equals("3")) {
 				;
 				customer.returnChange(vendingMachine.getRemainingBalance());
 				System.out.println("Have a good day!");
-				System.exit(1);
+
 
 			} else {
 				System.out.println("Not a valid selection! Returning to main menu....");

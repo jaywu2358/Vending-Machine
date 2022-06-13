@@ -29,6 +29,7 @@ public class Customer {
 
         } else {
             System.out.println("Money not accepted, Please only insert $1, $5, $10, or $20 bills!");
+
         }
     }
 //        if(amountToFeed.compareTo(amountToFeed) == 0 || amountToFeed.compareTo(amountToFeed) == 5 || amountToFeed.compareTo(amountToFeed) == 10 || amountToFeed.compareTo(amountToFeed) == 20) {
@@ -46,6 +47,12 @@ public class Customer {
         return remainingBalance;
     }
 
+    public BigDecimal finishTransaction(boolean finishTransaction) {
+        if (finishTransaction) {
+            remainingBalance = BigDecimal.valueOf(0);
+        }
+            return remainingBalance;
+    }
 
 
     public BigDecimal getRemainingBalance() {
@@ -80,7 +87,9 @@ public class Customer {
             //change.subtract(BigDecimal.valueOf(0.05));
 
         }
-        log("GIVE CHANGE: $" + remainingBalance + "\t  $" + changeInDouble);
-        System.out.println("Thank you for your purchase!! Here is your change: " + quarter + " quarters, " + dime + " dimes, " + nickel + " nickels.");
+        log("GIVE CHANGE: $" + remainingBalance + " $" + changeInDouble);
+        System.out.println("Thank you for your purchase!! Remaining balance: $" + remainingBalance );
+        System.out.println("Here is your change: " + quarter + " quarters, " + dime + " dimes, " + nickel + " nickels.");
+        System.out.println("Remaining balance: $" + changeInDouble);
     }
 }

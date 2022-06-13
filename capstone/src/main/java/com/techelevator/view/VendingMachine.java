@@ -70,9 +70,12 @@ public class VendingMachine {
             productName = entireSlot.getValue().getName();
             productPrice = entireSlot.getValue().getPrice();
             int currentStock = entireSlot.getValue().getStock();
+            if(currentStock == 0){
+                System.out.println(slotNumber + ": " + productName + "  --> Price $" + productPrice + "  --> CurrentStock: SOLD OUT");
+            } else {
 
-            System.out.println(slotNumber + ": " + productName + "  --> Price $" + productPrice + "  --> CurrentStock: " + currentStock);
-
+                System.out.println(slotNumber + ": " + productName + "  --> Price $" + productPrice + "  --> CurrentStock: " + currentStock);
+            }
         }
     }
 
