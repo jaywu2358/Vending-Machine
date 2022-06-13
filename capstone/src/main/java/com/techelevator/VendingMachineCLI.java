@@ -87,10 +87,20 @@ public class VendingMachineCLI {
 
 
 				}
+<<<<<<< HEAD
 				else if (userSelection.equals("3")) {
 					customer.returnChange(vendingMachine.getRemainingBalance());
 					customer.finishTransaction(true);
 
+=======
+				if (userSelection.equals("3")) {
+					System.out.println(vendingMachine.getChange());
+					System.out.println();
+					//	System.out.println("Thank you for your purchase. Here is your change: " + method change);
+					//return change - using nickels, dimes, and quarters
+					//return to main menu, instead of System.exit
+					//log.txt
+>>>>>>> 41646aee3a824811c16afa635f799224328b359b
 				}
 
 			} else if (userSelection.equals("3")) {

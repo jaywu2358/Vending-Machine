@@ -9,8 +9,13 @@ import java.util.HashSet;
 import java.util.Set;
 import static com.techelevator.view.Log.log;
 
+<<<<<<< HEAD
 public class Customer {
 
+=======
+    private double change;
+    private double currentMoney;
+>>>>>>> 41646aee3a824811c16afa635f799224328b359b
 
     VendingMachine vendingMachine = new VendingMachine();
     BigDecimal remainingBalance = vendingMachine.getRemainingBalance();
@@ -54,6 +59,7 @@ public class Customer {
             return remainingBalance;
     }
 
+<<<<<<< HEAD
 
     public BigDecimal getRemainingBalance() {
         return remainingBalance;
@@ -67,6 +73,8 @@ public class Customer {
         double changeInDouble  = change.doubleValue() * 100;
 
         while (changeInDouble  >= 25) {
+=======
+>>>>>>> 41646aee3a824811c16afa635f799224328b359b
 
             quarter++;
             changeInDouble-=25;
