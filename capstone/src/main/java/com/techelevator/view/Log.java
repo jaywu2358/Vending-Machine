@@ -10,8 +10,6 @@ import java.util.Date;
 
 public class Log {
 
-
-
     public static void log(String message) throws FileNotFoundException {
         DateFormat date = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss aa");
         String dateString = date.format(new Date()).toString();

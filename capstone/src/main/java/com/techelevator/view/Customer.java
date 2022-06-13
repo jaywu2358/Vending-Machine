@@ -12,8 +12,8 @@ import static com.techelevator.view.Log.log;
 
 public class Customer {
 
-    VendingMachine vendingMachine = new VendingMachine();
-    BigDecimal remainingBalance = vendingMachine.getRemainingBalance();
+    private VendingMachine vendingMachine = new VendingMachine();
+    private BigDecimal remainingBalance = vendingMachine.getRemainingBalance();
 
     public void feedMoney(BigDecimal amountToFeed) throws FileNotFoundException {
 

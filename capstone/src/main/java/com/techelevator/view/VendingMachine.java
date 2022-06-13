@@ -10,11 +10,11 @@ import static com.techelevator.view.Log.log;
 
 public class VendingMachine {
 
-    TreeMap <String, Products> productInfo = new TreeMap<>();
-    String slotNumber;
-    String productName;
-    BigDecimal productPrice;
-    BigDecimal remainingBalance = BigDecimal.valueOf(0);
+    private TreeMap <String, Products> productInfo = new TreeMap<>();
+    private String slotNumber;
+    private String productName;
+    private BigDecimal productPrice;
+    private BigDecimal remainingBalance = BigDecimal.valueOf(0);
 
     public Map<String, Products> getProductInfo() {
 
@@ -103,37 +103,6 @@ public class VendingMachine {
 
     public BigDecimal getRemainingBalance() {
         return remainingBalance;
-    }
-
-
-
-//    public double getChange() {
-//
-//        double change;
-//
-//        change = currentMoney;
-//        return change;
-//    }
-
-    public String dispenseChange(double change) {
-
-        double cash;
-        int nickel = 0;
-        int dime = 0;
-        int quarter = 0;
-
-        while(change >= 0.25) {
-            quarter++;
-            change -= 0.25;
-        } while(change >= 0.10) {
-            dime++;
-            change -= 0.10;
-        } while(change >= 0.05) {
-            nickel++;
-            change -= 0.05;
-        }
-        return quarter + " quarters " + dime + " dime " + nickel + " nickels ";
-
     }
 
 }
