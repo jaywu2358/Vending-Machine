@@ -107,5 +107,34 @@ public class VendingMachine {
 
 
 
+//    public double getChange() {
+//
+//        double change;
+//
+//        change = currentMoney;
+//        return change;
+//    }
+
+    public String dispenseChange(double change) {
+
+        double cash;
+        int nickel = 0;
+        int dime = 0;
+        int quarter = 0;
+
+        while(change >= 0.25) {
+            quarter++;
+            change -= 0.25;
+        } while(change >= 0.10) {
+            dime++;
+            change -= 0.10;
+        } while(change >= 0.05) {
+            nickel++;
+            change -= 0.05;
+        }
+        return quarter + " quarters " + dime + " dime " + nickel + " nickels ";
+
+    }
+
 }
 

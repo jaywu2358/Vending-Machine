@@ -9,8 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 import static com.techelevator.view.Log.log;
 
-public class Customer {
 
+public class Customer {
 
     VendingMachine vendingMachine = new VendingMachine();
     BigDecimal remainingBalance = vendingMachine.getRemainingBalance();
@@ -53,7 +53,6 @@ public class Customer {
         }
         return false;
     }
-
 
     public BigDecimal getRemainingBalance() {
         return remainingBalance;

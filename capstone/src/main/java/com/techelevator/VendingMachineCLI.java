@@ -86,6 +86,7 @@ public class VendingMachineCLI {
 					vendingMachine.dispenseItem(customer, userSelection);
 
 				}
+
 				else if (userSelection.equals("3")) {
 
 					customer.returnChange(currentMoneyProvided);
