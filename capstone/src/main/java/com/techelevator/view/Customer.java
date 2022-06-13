@@ -47,11 +47,11 @@ public class Customer {
         return remainingBalance;
     }
 
-    public BigDecimal finishTransaction(boolean finishTransaction) {
+    public boolean finishTransaction(boolean finishTransaction) {
         if (finishTransaction) {
             remainingBalance = BigDecimal.valueOf(0);
         }
-            return remainingBalance;
+        return false;
     }
 
 
@@ -87,9 +87,9 @@ public class Customer {
             //change.subtract(BigDecimal.valueOf(0.05));
 
         }
-        log("GIVE CHANGE: $" + remainingBalance + " $" + changeInDouble);
-        System.out.println("Thank you for your purchase!! Remaining balance: $" + remainingBalance );
+        log("GIVE CHANGE: $" + remainingBalance.doubleValue() + " $" + changeInDouble);
+        System.out.println("Thank you for using Vendo-Matic 800!!");
         System.out.println("Here is your change: " + quarter + " quarters, " + dime + " dimes, " + nickel + " nickels.");
-        System.out.println("Remaining balance: $" + changeInDouble);
+        System.out.println("New remaining balance: $" + changeInDouble);
     }
 }

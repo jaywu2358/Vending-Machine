@@ -84,10 +84,8 @@ public class VendingMachine {
         BigDecimal currentMoney = customer.getRemainingBalance();
         Products currentProduct = productInfo.get(userSelection);
 
-
-
         if(currentProduct.getStock() == 0) {
-            System.out.println("SOLD OUT");
+            System.out.println("This item is SOLD OUT. Please select other option!");
         }
         if(currentProduct.getStock() > 0) {
             if (currentMoney.compareTo(currentProduct.getPrice()) >= 0) {
@@ -95,10 +93,10 @@ public class VendingMachine {
                 remainingBalance = customer.change(currentProduct.getPrice());
 
                 String formattedPrice = "$" + String.format("%.2f", currentProduct.getPrice());
-                System.out.println("You have purchased (1) " + currentProduct.getName() + ", Remaining amount: $" + remainingBalance + "\n" + currentProduct.getDispensingMsg());
+                System.out.println("You have purchased (1) " + currentProduct.getName() + ", Remaining balance: $" + remainingBalance + "\n" + currentProduct.getDispensingMsg());
                 log(currentProduct.getName() + " " + userSelection + " " + formattedPrice + " $" + customer.getRemainingBalance());
             } else {
-                System.out.println("Insufficient amount of money. Purchase failed!");
+                System.out.println("Insufficient amount. Purchase failed!");
             }
         }
     }

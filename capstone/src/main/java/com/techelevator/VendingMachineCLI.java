@@ -73,8 +73,8 @@ public class VendingMachineCLI {
 					System.out.println("Please only insert $1, $5, $10, or $20 bills");
 					userSelection = userInput.nextLine();
 					customer.feedMoney(new BigDecimal(userSelection));
-
 				}
+
 				else if (userSelection.equals("2")) {
 					System.out.println("\n");
 					System.out.println("*********** Vending Machine Items ***********");
@@ -85,18 +85,19 @@ public class VendingMachineCLI {
 					userSelection = userInput.nextLine().toUpperCase();
 					vendingMachine.dispenseItem(customer, userSelection);
 
-
 				}
 				else if (userSelection.equals("3")) {
-					customer.returnChange(vendingMachine.getRemainingBalance());
+
+					customer.returnChange(currentMoneyProvided);
 					customer.finishTransaction(true);
 
 				}
 
 			} else if (userSelection.equals("3")) {
-				;
-				customer.returnChange(vendingMachine.getRemainingBalance());
+
+				//customer.returnChange(currentMoneyProvided);
 				System.out.println("Have a good day!");
+				System.exit(1);
 
 
 			} else {
