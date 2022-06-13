@@ -1,14 +1,15 @@
 package com.techelevator.Inventory;
 
+import java.math.BigDecimal;
+
 public class Gum extends Products {
 
-    public Gum(String name, Double price, String type) {
+    public Gum(String name, BigDecimal price) {
 
-        super(name, price, type);
+        super(name, price);
 
     }
 
-    @Override
     public String getDispensingMsg() {
         return "Chew Chew, Yum!";
     }

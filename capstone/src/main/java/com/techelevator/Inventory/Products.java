@@ -2,54 +2,38 @@ package com.techelevator.Inventory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.*;
 
-public class Products {
+public abstract class Products {
 
     private String name;
-    private Double price;
+    private BigDecimal price;
     private String type;
     private int stock = 5;
-    private int sales;
 
-    public Products (String name, Double price, String type){
+    public Products (String name, BigDecimal price){
         this.name = name;
         this.price = price;
-        this.type = type;
-        stock = 5;
-        sales = 0;
-    }
-
-    public Products() {
 
     }
 
-    public int sold() {
-        return stock--;
-    }
-
-    public String getDispensingMsg() {
-        return "";
-    }
+    public abstract String getDispensingMsg();
 
     public String getName() {
         return name;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public int getStock() {
         return stock;
     }
 
-    public int getSales() {
-        return sales;
+    public void sold() {
+        stock--;
     }
 }
 

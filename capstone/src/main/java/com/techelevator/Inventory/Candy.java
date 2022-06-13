@@ -1,14 +1,15 @@
 package com.techelevator.Inventory;
 
+import java.math.BigDecimal;
+
 public class Candy extends Products {
 
-    public Candy(String name, Double price, String type) {
+    public Candy(String name, BigDecimal price) {
 
-        super(name, price, type);
+        super(name, price);
 
     }
 
-    @Override
     public String getDispensingMsg() {
         return "Munch Munch, Yum!";
     }

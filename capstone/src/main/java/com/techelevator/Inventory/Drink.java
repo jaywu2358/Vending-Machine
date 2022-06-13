@@ -1,14 +1,15 @@
 package com.techelevator.Inventory;
 
+import java.math.BigDecimal;
+
 public class Drink extends Products {
 
-    public Drink(String name, Double price, String type) {
+    public Drink(String name, BigDecimal price) {
 
-        super(name, price, type);
+        super(name, price);
 
     }
 
-    @Override
     public String getDispensingMsg() {
         return "Glug Glug, Yum!";
     }

@@ -1,14 +1,15 @@
 package com.techelevator.Inventory;
 
+import java.math.BigDecimal;
+
 public class Chip extends Products {
 
-    public Chip(String name, Double price, String type) {
+    public Chip(String name, BigDecimal price) {
 
-        super(name, price, type);
+        super(name, price);
 
     }
 
-    @Override
     public String getDispensingMsg() {
         return "Crunch Crunch, Yum!";
     }
