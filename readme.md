@@ -10,7 +10,7 @@
   <p align="center">
     A console-based vending machine application that I developed from scratch.
     </br>  
-    <a href="https://jaywu.netlify.app/">Click HERE to check out my portfolio</a>
+    
   </p>
 </div>
 
